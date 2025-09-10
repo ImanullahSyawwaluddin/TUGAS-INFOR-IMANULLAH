@@ -1,0 +1,120 @@
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0a0f24; /* biru tua */
+  color: #e0e6ff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Animasi fade in tiap halaman */
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Header */
+header {
+  background: url("cover.jpg") no-repeat center center;
+  background-size: cover;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-bottom: 3px solid #33ccff;
+  box-shadow: 0 0 15px rgba(51, 204, 255, 0.6);
+}
+
+/* Layout utama */
+.container {
+  display: flex;
+  margin: 20px;
+}
+
+/* Sidebar */
+nav {
+  width: 280px;
+  background: #102c54;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(51, 204, 255, 0.5);
+  height: fit-content;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  margin: 15px 0;
+}
+
+nav ul li a {
+  color: #e0e6ff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 14px;
+  display: block;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background: #1a4b84;
+  color: #33ccff;
+  box-shadow: 0 0 10px #33ccff;
+  transform: translateX(6px);
+}
+
+/* Konten utama */
+main {
+  flex: 1;
+  background: rgba(16, 28, 84, 0.9);
+  margin-left: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(51, 204, 255, 0.3);
+  animation: slideUp 0.8s ease;
+  color: #f0f6ff;
+}
+
+/* Animasi konten naik */
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+main h2 {
+  color: #33ccff;
+  margin-bottom: 10px;
+}
+
+main h3 {
+  color: #66d9ff;
+  margin: 15px 0 8px;
+}
+
+main ul li {
+  margin-left: 20px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  background: linear-gradient(90deg, #0a0f24, #102c54);
+  margin: 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  color: #33ccff;
+  box-shadow: 0 0 10px rgba(51, 204, 255, 0.4);
+}
