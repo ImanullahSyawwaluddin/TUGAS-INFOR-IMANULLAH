@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Foto-Foto - Insan Cendekia</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0f1f, #0f2437);
+      color: #e0e0e0;
+    }
+
+    .container {
+      display: flex;
+    }
+
+    nav {
+      width: 260px;
+      background: #0d1b2a;
+      color: #66d9ff;
+      min-height: 100vh;
+      padding: 20px;
+      box-shadow: 3px 0 15px rgba(0, 255, 255, 0.2);
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 15px 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #66d9ff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover, 
+    nav ul li a.active {
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff;
+    }
+
+    main {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .gallery-section {
+      margin-bottom: 50px;
+    }
+
+    .gallery-section h2 {
+      margin-bottom: 20px;
+      color: #66d9ff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    }
+
+    .gallery-item p {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #66d9ff;
+      text-shadow: 0 0 6px #00ffff;
+    }
+
+    header img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 4px solid #00ffff;
+    }
+
+    video {
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #0d1b2a;
+      color: #66d9ff;
+      margin-top: 30px;
+      font-size: 14px;
+      text-shadow: 0 0 6px #00ffff;
+    }
+
+    /* Modal fullscreen */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+    }
+
+    .modal-content, #caption {  
+      animation-name: zoom;
+      animation-duration: 0.4s;
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.5)}
+      to {transform: scale(1)}
+    }
+
+    /* Tombol close */
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      text-shadow: 0 0 8px #00ffff;
+    }
+
+    .close:hover {
+      color: #00ffff;
+    }
+  </style>
+</head>
+<body>
+<header>
+  <img src="cover.jpg" alt="Header Sekolah">
+</header>
+
+<div class="container">
+  <nav>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <img src="logo.png" alt="Logo Sekolah" width="140">
+    </div>
+
+    <ul>
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="fasilitas.html">Fasilitas</a></li>
+      <li><a href="fotofoto.html" class="active">Foto-Foto</a></li>
+      <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+
+    <div style="margin-top: 20px; text-align: center;">
+      <video width="220" controls>
+        <source src="mars.mp4" type="video/mp4">
+        Browser anda tidak mendukung video.
+      </video>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Galeri Foto -->
+    <div class="gallery-section">
+      <h2>Galeri Foto</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="foto1.jpg" alt="Foto 1"></div>
+        <div class="gallery-item"><img src="foto2.jpg" alt="Foto 2"></div>
+        <div class="gallery-item"><img src="foto3.jpg" alt="Foto 3"></div>
+        <div class="gallery-item"><img src="foto4.jpg" alt="Foto 4"></div>
+        <div class="gallery-item"><img src="foto5.jpg" alt="Foto 5"></div>
+        <div class="gallery-item"><img src="foto6.jpg" alt="Foto 6"></div>
+        <div class="gallery-item"><img src="foto7.jpg" alt="Foto 7"></div>
+        <div class="gallery-item"><img src="foto8.jpg" alt="Foto 8"></div>
+        <div class="gallery-item"><img src="foto9.jpg" alt="Foto 9"></div>
+        <div class="gallery-item"><img src="foto10.jpg" alt="Foto 10"></div>
+      </div>
+    </div>
+
+    <!-- Foto Kegiatan -->
+    <div class="gallery-section">
+      <h2>Foto Kegiatan</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="biologi.png" alt="Praktek Biologi">
+          <p>Praktek Biologi</p>
+        </div>
+        <div class="gallery-item">
+          <img src="kimia.png" alt="Praktek Kimia">
+          <p>Praktek Kimia</p>
+        </div>
+        <div class="gallery-item">
+          <img src="komputer.png" alt="Lab Komputer">
+          <p>Lab Komputer</p>
+        </div>
+        <div class="gallery-item">
+          <img src="bahasa.png" alt="Lab Bahasa">
+          <p>Lab Bahasa</p>
+        </div>
+        <div class="gallery-item">
+          <img src="perpus.png" alt="Perpustakaan">
+          <p>Perpustakaan</p>
+        </div>
+        <div class="gallery-item">
+          <img src="basket.png" alt="Ekstrakurikuler">
+          <p>Ekstrakurikuler</p>
+        </div>
+        <div class="gallery-item">
+          <img src="keputrian.png" alt="Keputrian">
+          <p>Keputrian</p>
+        </div>
+        <div class="gallery-item">
+          <img src="lapangan.gif" alt="Olahraga">
+          <p>Olahraga</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer>
+  created by muhammad imanullah syawwaluddin
+</footer>
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="imgModal">
+</div>
+
+<script>
+  // ambil elemen modal
+  var modal = document.getElementById("myModal");
+  var modalImg = document.getElementById("imgModal");
+  var span = document.getElementsByClassName("close")[0];
+
+  // semua gambar galeri
+  var imgs = document.querySelectorAll(".gallery-item img");
+
+  imgs.forEach(function(img) {
+    img.onclick = function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+    }
+  });
+
+  // tombol close
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // klik di luar gambar = close
+  modal.onclick = function(e) {
+    if (e.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+</body>
+</html>
