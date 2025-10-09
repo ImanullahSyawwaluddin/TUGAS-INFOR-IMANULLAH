@@ -1,8 +1,8 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "db_latihan";
+$host = "tugasinformanics-informatikamanics.l.aivencloud.com";
+$user = "avnadmin";
+$pass = "AVNS_82aKeks69pY3oCwm-Q2";
+$db   = "dbtugasreal";
 
 $koneksi = mysqli_connect($host, $user, $pass, $db);
 
