@@ -1,33 +1,28 @@
 <?php
-session_start();
+include "koneksi.php";
 
-$error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'] ?? '';
-    $password = $_POST['password'] ?? '';
+if (isset($_POST['login'])) {
+    $user = $_POST['user'];
+    $pass = $_POST['password'];
 
-    if ($username === 'gw' && $password === '3071481418') {
-        $_SESSION['loggedin'] = true;
-        header('Location: menu.php');
-        exit;
+    $query = mysqli_query($koneksi, "SELECT * FROM tbl_user WHERE user='$user' AND password='$pass'");
+    $data = mysqli_fetch_array($query);
+
+    if ($data) {
+        session_start();
+        $_SESSION['user'] = $data['user'];
+        $_SESSION['status'] = $data['status'];
+        header("Location: menu.php");
     } else {
-        $error = 'Username atau password salah.';
+        echo "Login gagal! Username atau password salah.";
     }
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head><title>Login</title></head>
-<body>
-<h2>Login</h2>
-<?php if ($error): ?>
-<p style="color:red;"><?=htmlspecialchars($error)?></p>
-<?php endif; ?>
-<form method="post" action="">
-    Username: <input type="text" name="username" required><br><br>
-    Password: <input type="password" name="password" required><br><br>
-    <button type="submit">Login</button>
+<form method="post">
+    <label>Username:</label><br>
+    <input type="text" name="user"><br>
+    <label>Password:</label><br>
+    <input type="password" name="password"><br>
+    <button type="submit" name="login">Login</button>
 </form>
-</body>
-</html>
